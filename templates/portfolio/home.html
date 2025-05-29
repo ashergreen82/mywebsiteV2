@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<section class="hero bg-primary text-white text-center py-5 mb-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8">
+                <div class="my-5">
+                    <h1 class="display-4 fw-bolder">{{ name }}</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">{{ role }}</p>
+                    <div class="d-grid gap-3 d-sm-flex justify-content-sm-center mt-4">
+                        <a href="{% url 'portfolio:projects' %}" class="btn btn-outline-light btn-lg px-4">View My Projects</a>
+                        <a href="{% url 'portfolio:contact' %}" class="btn btn-light btn-lg px-4">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bolder mb-4">Welcome to My Portfolio</h2>
+                    <p class="lead">
+                        I'm a versatile Software Developer skilled in Python, JavaScript (React), and C#. 
+                        Known for delivering reliable, high-quality solutions via APIs and RESTful services.
+                    </p>
+                    <p>
+                        I bring positivity, strong debugging skills, and deep Git/GitHub experience to collaborative teams. 
+                        As a lifelong learner and committed team member, I'm known for exceptional loyalty and punctuality.
+                    </p>
+                </div>
+                
+                <div class="row mb-5">
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card h-100 text-center">
+                            <div class="card-body">
+                                <i class="fas fa-code fa-3x mb-3 text-primary"></i>
+                                <h3 class="card-title">Development</h3>
+                                <p class="card-text">Building responsive and user-friendly web applications</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card h-100 text-center">
+                            <div class="card-body">
+                                <i class="fas fa-laptop-code fa-3x mb-3 text-primary"></i>
+                                <h3 class="card-title">Engineering</h3>
+                                <p class="card-text">Creating robust and scalable software solutions</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 text-center">
+                            <div class="card-body">
+                                <i class="fas fa-cogs fa-3x mb-3 text-primary"></i>
+                                <h3 class="card-title">Problem Solving</h3>
+                                <p class="card-text">Finding efficient solutions to complex problems</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <a href="{% url 'portfolio:about' %}" class="btn btn-primary btn-lg">Learn More About Me</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
