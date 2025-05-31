@@ -44,7 +44,7 @@ def projects(request):
             'image': 'Screenshot 2025-05-12 105204 main screen.png',
         },
         {
-            'title': 'Chat App',
+            'title': 'Super Simple Chat App',
             'description': 'A simple group chat which allows you to send messages to everyone in a group.',
             'details': [
                 'Written in HTML, CSS, JavaScript, ReactJS, Bootstrap, Python, Flask and PostgreSQL.',
