@@ -14,7 +14,7 @@
                     {% for project in projects %}
                     <div class="col-lg-6 mb-5">
                         <div class="card h-100 shadow">
-                            <img class="card-img-top" src="{% static 'images/'|add:project.image %}" alt="{{ project.title }}" onerror="this.src='https://via.placeholder.com/700x400?text={{ project.title|urlencode }}'">
+                            <img class="card-img-top" src="{% static 'images/'|add:project.image %}" alt="{{ project.title }}">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <h2 class="card-title h4">{{ project.title }}</h2>

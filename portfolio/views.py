@@ -41,7 +41,7 @@ def projects(request):
                 'Gained valuable experience in collaborative development, Git workflow, and full-stack application architecture.',
             ],
             'link': 'https://community-map-207215937730.us-central1.run.app',
-            'image': 'community_map.jpg',
+            'image': 'Screenshot 2025-05-12 105204 main screen.png',
         },
         {
             'title': 'Chat App',
@@ -52,7 +52,7 @@ def projects(request):
                 'Implements a PostgreSQL database. Implements JSON Web Tokens for user authentication.',
             ],
             'link': 'https://chatapp-fdyf.onrender.com',
-            'image': 'chat_app.jpg',
+            'image': 'login_screenshot.png',
         },
         {
             'title': 'Star Wars App',
@@ -63,7 +63,7 @@ def projects(request):
                 'Deployed on Netlify',
             ],
             'link': 'https://silly-brigadeiros-d326dd.netlify.app',
-            'image': 'star_wars.jpg',
+            'image': 'background.jpg',
         },
     ]
     context = {
