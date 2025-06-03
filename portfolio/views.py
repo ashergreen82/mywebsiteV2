@@ -73,53 +73,10 @@ def projects(request):
     return render(request, 'portfolio/projects.html', context)
 
 def resume(request):
-    """View for the resume page"""
-    education = [
-        {
-            'institution': 'ALGOEXPERT/PROGRAMMINGEXPERT',
-            'details': [
-                'Data Structures, Big O Notation, Logarithms, Arrays etc.',
-                'Go, Software Design, Object Oriented Programming as well as other advanced programming.',
-            ],
-        },
-        {
-            'institution': 'BOOTCAMP FROM ZERO TO HERO IN PYTHON',
-            'date': 'May 2022',
-            'details': [
-                'Developed skills in Python while learning core programming concepts.',
-            ],
-        },
-    ]
-    
-    experience = [
-        {
-            'position': 'Software Development Mastermind (Mentorship Program)',
-            'date': 'October 2022 – February 2024',
-            'details': [
-                'Strengthened programming skills across multiple languages and technologies, becoming a more versatile and well-rounded developer.',
-                'Received invaluable feedback and coaching resulting in enhanced development skills in a professional environment.',
-            ],
-        },
-    ]
-    
-    context = {
-        'title': 'Resume',
-        'name': 'Asher Green',
-        'role': 'Full-Stack Development | Software Engineering | Web Development',
-        'location': 'Pickering, Ontario',
-        'email': 'asher@ashergreen.ca',
-        'phone': '+1 (416) 729-3001',
-        'linkedin': 'https://www.linkedin.com/in/asher-green-6a96551/',
-        'github': 'https://github.com/ashergreen82',
-        'website': 'www.ashergreen.ca',
-        'education': education,
-        'experience': experience,
-        'skills': [
-            {'category': 'Languages / Frameworks', 'items': 'Python, JavaScript, HTML/CSS, Go, React, Bootstrap, Flask'},
-            {'category': 'Technologies', 'items': 'Git, GitHub, Postman, PostgreSQL'},
-        ],
-    }
-    return render(request, 'portfolio/resume.html', context)
+    """View for the resume page - directly redirects to the PDF file"""
+    from django.http import HttpResponseRedirect
+    from django.templatetags.static import static
+    return HttpResponseRedirect(static('documents/AsherGreenResume.pdf'))
 
 def contact(request):
     """View for the contact page"""
