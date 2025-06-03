@@ -73,9 +73,10 @@ def projects(request):
     return render(request, 'portfolio/projects.html', context)
 
 def resume(request):
-    """View for the resume page - directly redirects to the PDF file"""
+    """View for the resume page - directly redirects to the static PDF file"""
     from django.http import HttpResponseRedirect
     from django.templatetags.static import static
+    # Use static file from documents directory
     return HttpResponseRedirect(static('documents/AsherGreenResume.pdf'))
 
 def contact(request):
