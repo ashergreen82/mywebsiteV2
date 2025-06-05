@@ -25,9 +25,9 @@
 </style>
 
 <div class="pdf-container">
-    <a href="/media/AsherGreenResume.pdf" class="btn btn-primary download-button" download>
+    <a href="{% static 'documents/AsherGreenResume.pdf' %}" class="btn btn-primary download-button" download>
         <i class="fas fa-download me-2"></i>Download PDF
     </a>
-    <embed src="/media/AsherGreenResume.pdf" type="application/pdf" class="pdf-embed">
+    <embed src="{% static 'documents/AsherGreenResume.pdf' %}" type="application/pdf" class="pdf-embed">
 </div>
 {% endblock %}
