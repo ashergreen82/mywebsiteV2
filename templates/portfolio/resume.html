@@ -16,18 +16,10 @@
         height: 100%;
         border: none;
     }
-    .download-button {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        z-index: 100;
-    }
+    /* Download button removed as it was redundant */
 </style>
 
 <div class="pdf-container">
-    <a href="{% static 'documents/AsherGreenResume.pdf' %}" class="btn btn-primary download-button" download>
-        <i class="fas fa-download me-2"></i>Download PDF
-    </a>
     <embed src="{% static 'documents/AsherGreenResume.pdf' %}" type="application/pdf" class="pdf-embed">
 </div>
 {% endblock %}
