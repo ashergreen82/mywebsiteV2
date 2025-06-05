@@ -1,19 +1,11 @@
 from django.shortcuts import render
 
 def home(request):
-    """View for the home page"""
+    """View for the home page (combined with about page)"""
     context = {
         'title': 'Asher Green - Software Developer',
         'name': 'Asher Green',
         'role': 'Full-Stack Development | Software Engineering | Web Development',
-    }
-    return render(request, 'portfolio/home.html', context)
-
-def about(request):
-    """View for the about page"""
-    context = {
-        'title': 'About Me',
-        'name': 'Asher Green',
         'location': 'Pickering, Ontario',
         'email': 'asher@ashergreen.ca',
         'phone': '+1 (416) 729-3001',
@@ -26,7 +18,12 @@ def about(request):
             {'category': 'Technologies', 'items': 'Git, GitHub, Postman, PostgreSQL'},
         ],
     }
-    return render(request, 'portfolio/about.html', context)
+    return render(request, 'portfolio/home.html', context)
+
+def about(request):
+    """View for the about page - redirects to home page"""
+    from django.shortcuts import redirect
+    return redirect('portfolio:home')
 
 def projects(request):
     """View for the projects page"""
