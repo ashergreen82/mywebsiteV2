@@ -22,6 +22,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('portfolio.urls')),
+    path('api/swapi/', include('swapi_proxy.urls')),  # SWAPI proxy endpoints
 ]
 
 # Serve media files in development
