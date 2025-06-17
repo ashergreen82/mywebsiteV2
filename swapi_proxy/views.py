@@ -39,16 +39,19 @@ def proxy_swapi(request, path):
             swapi_url = f"{swapi_url}?{query_string}"
     
     try:
-        # Make the request to SWAPI
-        response = requests.get(swapi_url)
+        # Make the request to SWAPI with SSL verification disabled
+        # In production, you should properly configure SSL certificates instead of disabling verification
+        response = requests.get(swapi_url, verify=False)
         response.raise_for_status()
         
         # Return the JSON response with proper CORS headers
         return JsonResponse(response.json(), safe=False)
         
     except requests.RequestException as e:
-        # Handle request errors
+        # Log the error for debugging
+        print(f"Error fetching {swapi_url}: {str(e)}")
+        # Return a generic error message to the client
         return JsonResponse(
-            {"error": f"Error fetching data from SWAPI: {str(e)}"},
-            status=response.status_code if 'response' in locals() else 500
+            {"error": "Unable to fetch data from SWAPI. Please try again later."},
+            status=502  # Bad Gateway
         )
