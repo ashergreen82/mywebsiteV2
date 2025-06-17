@@ -2,11 +2,11 @@ import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 from django.conf import settings
-
-# Use http instead of https to avoid SSL issues
-BASE_URL = 'http://swapi.dev/api/'
+from urllib.parse import urljoin
 
 class SWAPIClient:
+    BASE_URL = 'https://swapi.dev/api/'
+    
     @staticmethod
     def _get_session():
         """Create a session with retry logic"""
@@ -16,7 +16,7 @@ class SWAPIClient:
             backoff_factor=0.5,
             status_forcelist=[500, 502, 503, 504],
         )
-        session.mount('http://', HTTPAdapter(max_retries=retries))
+        session.mount('https://', HTTPAdapter(max_retries=retries))
         return session
 
     @classmethod
@@ -25,10 +25,23 @@ class SWAPIClient:
         session = cls._get_session()
         try:
             response = session.get(
-                f"{BASE_URL}people/",
+                urljoin(cls.BASE_URL, 'people/'),
                 params={"search": query},
-                verify=False  # Skip SSL verification
+                verify=True
             )
+            response.raise_for_status()
+            return response.json()
+        except requests.RequestException as e:
+            return {"error": str(e)}
+        finally:
+            session.close()
+            
+    @classmethod
+    def get_resource(cls, url):
+        """Get a SWAPI resource by URL"""
+        session = cls._get_session()
+        try:
+            response = session.get(url, verify=True)
             response.raise_for_status()
             return response.json()
         except requests.RequestException as e:
