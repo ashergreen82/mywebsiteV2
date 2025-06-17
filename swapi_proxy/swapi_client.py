@@ -27,12 +27,13 @@ class SWAPIClient:
             response = session.get(
                 urljoin(cls.BASE_URL, 'people/'),
                 params={"search": query},
-                verify=True
+                verify=False  # Disable SSL verification
             )
             response.raise_for_status()
             return response.json()
         except requests.RequestException as e:
-            return {"error": str(e)}
+            print(f"Error searching people: {str(e)}")
+            return {"error": "Failed to fetch data from SWAPI. Please try again later."}
         finally:
             session.close()
             
@@ -41,10 +42,16 @@ class SWAPIClient:
         """Get a SWAPI resource by URL"""
         session = cls._get_session()
         try:
-            response = session.get(url, verify=True)
+            # Convert SWAPI URL to use our proxy if it's a direct SWAPI URL
+            if url.startswith('https://swapi.dev/api/'):
+                path = url.replace('https://swapi.dev/api/', '')
+                url = urljoin(cls.BASE_URL, path)
+                
+            response = session.get(url, verify=False)  # Disable SSL verification
             response.raise_for_status()
             return response.json()
         except requests.RequestException as e:
-            return {"error": str(e)}
+            print(f"Error fetching resource {url}: {str(e)}")
+            return {"error": "Failed to fetch resource from SWAPI. Please try again later."}
         finally:
             session.close()
