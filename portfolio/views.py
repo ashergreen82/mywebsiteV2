@@ -30,7 +30,7 @@ def projects(request):
     projects_list = [
         {
             'title': 'Community Sales Mapping App',
-            'status': 'In Development',
+            'status': 'Completed',
             'description': 'Maps garage sales during a community sales event on Google Maps.',
             'details': [
                 'Developed a responsive React.js front-end for a community garage sales mapping application, collaborating with a back-end developer in a cross-functional team environment.',
