@@ -66,15 +66,13 @@
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-lg-8">
-                <h2 class="fw-bolder text-center mb-5">About Me</h2>
+                <!-- <h2 class="fw-bolder text-center mb-5">About Me</h2> -->
                 
-                <div class="row mb-5">
+                <div class="row justify-content-center align-items-center mb-5">
                     <div class="col-md-4 text-center mb-4 mb-md-0">
                         <img src="{% static 'images/GreenA-6071.jpg' %}" alt="{{ name }}" class="img-fluid rounded-circle mb-3" style="max-width: 200px;">
-                        <h3>{{ name }}</h3>
-                        <p class="text-muted">Software Developer</p>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-4">
                         <div class="mt-4">
                             <p><strong>Location:</strong> {{ location }}</p>
                             <p><strong>Email:</strong> <a href="mailto:{{ email }}">{{ email }}</a></p>
